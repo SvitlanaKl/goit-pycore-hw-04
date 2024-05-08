@@ -7,7 +7,6 @@
 # Повинна бути перевірка та обробка помилок, наприклад, якщо вказаний шлях не існує або він не веде до директорії.
 
 import sys
-import os
 
 from colorama import Fore, Style
 from pathlib import Path
@@ -26,5 +25,10 @@ def list_directory_contents(dir_path, indent=0):
     except PermissionError:
         print("Відсутні права доступу до директорії.")
 
-list_directory_contents("C:\Users\WORK\Desktop\GoIT\Repository\Python\HomeWork\goit-pycore-hw-04>")
-
+if __name__ == "__main__":
+    if len(sys.argv) >1:
+        path = sys.argv[1]
+        list_directory_contents(path)
+    else:
+        print("Please input path to directory.")
+    
